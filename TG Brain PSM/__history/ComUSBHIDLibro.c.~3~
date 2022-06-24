@@ -1,0 +1,50 @@
+#include <18F4550.h> //Librería para usar el PIC18F4550.
+#fuses HSPLL,NOWDT,NOPROTECT,NOLVP,NODEBUG,USBDIV,PLL3,CPUDIV3,VREGEN, NOMCLR //Configuración de fusibles.
+#use delay(clock=12M) // FOSC = 12 MHz.
+#byte port_b = 0xF81 //Identificador del Puerto B.
+#define USB_HID_DEVICE TRUE //Tipo de comunicación USB HID verdadera.
+//Cambia a on EP1 para la transferencia de entrada IN bulk/interrupt.
+#define USB_EP1_TX_ENABLE USB_ENABLE_INTERRUPT
+#define USB_EP1_TX_SIZE 16
+//Cambia a on EP1 para la transferencia de salida OUT bulk/interrupt.
+#define USB_EP1_RX_ENABLE USB_ENABLE_INTERRUPT
+#define USB_EP1_RX_SIZE 16
+#include <pic18_usb.h> //Funciones de bajo nivel (hardware) que servirán en usb.c
+#include <my_usb_desc_hid.h> //Descriptores del dispositivo.
+#include <usb.c> //Librería para el manejo del USB.
+#define LED1 PIN_D0 //LED1para la espera de la conexión USB
+#define LED2 PIN_D1 //LED2, se enciende cuando el USB está conectado.
+int8 Salida[8]; //Variable de salida para envió de la información entrada analógica.
+int8 Entrada[8]; //Variable para recibir el estado de los interruptores en LABVIEW.
+
+void main() 
+{ //Función principal.
+        set_tris_b(0x00); //Define el Puerto B como salida.
+        output_b(0x00); //Define el Puerto B en 0.
+        setup_adc_ports(AN0);
+        setup_adc(ADC_CLOCK_INTERNAL); //Fija el Clock interno para el ADC.
+        set_adc_channel(0); //Fija el canal 0 para el ADC.
+        output_high(LED1); //Activa LED1 indicando que se inició la conexión.
+        output_low(LED2); //LED2 continúa apagado.
+        usb_init(); //Inicializa el LCD.
+        usb_task(); //Monitorea el estado de la conexión conectándose y desconectándose automáticamente.
+        usb_wait_for_enumeration(); //Espera infinitamente hasta que el dispositivo sea.enumerado.
+        output_high(LED2); //Apaga LED2 de espera.
+        output_low(LED1); //Indica que el dispositivo se enumeró y se estableció la comunicación.
+        
+        while (TRUE)
+        {
+                usb_task(); //Monitorea el estado de la conexión conectándose y desconectándose automáticamente.
+                if (usb_enumerated())
+                { //Si el dispositivo está enumerado….?
+                        Salida[0]=read_adc(); //Lee el valor del ADC.
+                        //Envía al bus USB el paquete de datos.
+                        usb_put_packet(1, Salida, 1, USB_DTS_TOGGLE);
+                        if (usb_kbhit(1))
+                        { //Si hay datos en el buffer del USB….?
+                                usb_get_packet(1, Entrada, 1); //Recibe el dato la variable entrada.
+                                port_b= Entrada[0]; //Asigna al Puerto B el byte de Entrada.
+                        }
+                }
+        } //Fin del lazo infinito.
+} //Fin del main.

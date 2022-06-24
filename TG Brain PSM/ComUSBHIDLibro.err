@@ -1,0 +1,13 @@
+Compiling D:\PROFESIONAL\ELECTRONIC DESING\Tarjeta Adquisicion Datos\TG Brain PSM\ComUSBHIDLibro on 22-oct-21 at 14:42
+*** Error 24 "C:\Program Files\PICC\Devices\18F4550.H" Line 11(9,19): Unknown device type    -- Try PCH
+      1 Errors,  0 Warnings.
+Build Failed.
+Compiling D:\PROFESIONAL\ELECTRONIC DESING\Tarjeta Adquisicion Datos\TG Brain PSM\ComUSBHIDLibro on 22-oct-21 at 14:42
+>>> Warning 203 "C:\Program Files\PICC\Drivers\pic18_usb.c" Line 727(1,1): Condition always TRUE
+>>> Warning 216 "D:\PROFESIONAL\ELECTRONIC DESING\Tarjeta Adquisicion Datos\TG Brain PSM\ComUSBHIDLibro.c" Line 83(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_token_reset)
+>>> Warning 216 "D:\PROFESIONAL\ELECTRONIC DESING\Tarjeta Adquisicion Datos\TG Brain PSM\ComUSBHIDLibro.c" Line 83(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_tbe)
+>>> Warning 216 "D:\PROFESIONAL\ELECTRONIC DESING\Tarjeta Adquisicion Datos\TG Brain PSM\ComUSBHIDLibro.c" Line 83(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_in)
+>>> Warning 216 "D:\PROFESIONAL\ELECTRONIC DESING\Tarjeta Adquisicion Datos\TG Brain PSM\ComUSBHIDLibro.c" Line 83(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_out)
+      Memory usage:   ROM=13%      RAM=11% - 12%
+      0 Errors,  5 Warnings.
+Build Successful.

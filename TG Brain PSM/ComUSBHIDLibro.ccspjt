@@ -1,0 +1,46 @@
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=4
+D1=27-01-2020
+D1_L=1
+D1_L1=[73487]Project Opened.
+D2=20-02-2020
+D2_L=2
+D2_L1=[76386]Project Opened.
+D2_L2=[77094]Project Closed.
+D3=22-10-2021
+D3_L=4
+D3_L1=[52529]Project Opened.
+D3_L2=[52928]Project Closed.
+D3_L3=[52944]Project Opened.
+D3_L4=[52958]Project Closed.
+D4=24-06-2022
+D4_L=4
+D4_L1=[59353]Project Opened.
+D4_L2=[59384]Project Closed.
+D4_L3=[59555]Project Opened.
+D4_L4=[59929]Project Closed.
+
+[Opened Files]
+1=ComUSBHIDLibro.c
+t1=1
+Count=1
+[PROJECT]
+Target=ComUSBHIDLibro.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.083
+Compiler=PCH
+[Target Data]
+FileList=ComUSBHIDLibro.c
+[ComUSBHIDLibro.c]
+Type=4
+[mru-list]
+1=ComUSBHIDLibro.c
+[Units]
+Count=1
+1=ComUSBHIDLibro (main)
+
+[defines]
+buildcount=1
