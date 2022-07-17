@@ -1,0 +1,48 @@
+[PROJECT]
+Target=Phase1.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.083
+Compiler=PCH
+[Target Data]
+FileList=Phase1.c
+[Phase1.c]
+Type=4
+[mru-list]
+1=Phase1.c
+
+[defines]
+buildcount=7
+
+[Opened Files]
+1=Phase1.c
+t1=10
+Count=1
+
+[ProjectLog]
+Days=1
+D1=16-07-2022
+D1_L=14
+D1_L1=[69089]Stopped Editing.
+D1_L2=[69370]Started Editing.
+D1_L3=[69995]Stopped Editing.
+D1_L4=[71939]Started Editing.
+D1_L5=[72353]Stopped Editing.
+TotalEdit=34
+TotalDebug=0
+D1_E=34
+D1_D=0
+D1_L6=[72353]Project Closed.
+D1_L7=[72791]Project Opened.
+D1_L8=[72838]Started Editing.
+D1_L9=[73063]Stopped Editing.
+D1_L10=[73063]Project Closed.
+D1_L11=[73095]Project Opened.
+D1_L12=[73106]Started Editing.
+D1_L13=[73122]Stopped Editing.
+D1_L14=[73122]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=Phase1 (main)

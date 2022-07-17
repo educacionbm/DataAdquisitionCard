@@ -1,0 +1,7 @@
+Compiling C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\DataAdquisition\C Code\Phase1 on 16-jul-22 at 20:18
+>>> Warning 203 "C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\DataAdquisition\C Code\Phase1.c" Line 26(1,1): Condition always TRUE
+>>> Warning 202 "C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\DataAdquisition\C Code\Phase1.c" Line 19(13,15): Variable never used:   s3
+>>> Warning 202 "C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\DataAdquisition\C Code\Phase1.c" Line 19(16,18): Variable never used:   s4
+      Memory usage:   ROM=5%      RAM=1% - 2%
+      0 Errors,  3 Warnings.
+Build Successful.

@@ -1,0 +1,34 @@
+#Include <18F4550.h> //Indica el uC que se va usar
+#Device ADC=10 //activando el convertidor ana-dig
+#Use Delay(CLOCK=20M) // Frecuencia de trabajo
+#Fuses HS, NOWDT, NOPROTECT, PUT, BROWNOUT, NOLVP, NOMCLR
+#USE Standard_IO(A)
+#USE Standard_IO(D)
+
+// Pines Pantalla LCD
+#Define LCD_DB4 PIN_D4
+#Define LCD_DB5 PIN_D5
+#Define LCD_DB6 PIN_D6
+#Define LCD_DB7 PIN_D7
+#Define LCD_RS PIN_D7
+#Define LCD_E PIN_D3
+#Include <LCD_16X2.c> // Libreria LCD
+
+Float s1,s2,s3,s4; // Variables de Sensores
+
+Void Main (){
+   LCD_Init();
+   Setup_ADC_Ports(AN0);
+   Setup_ADC(ADC_Clock_Internal);
+
+   While(1){
+      Set_ADC_channel(0);
+      Delay_us(10);
+      s1 = Read_ADC();
+      
+      LCD_Clear();
+      LCD_Gotoxy(1,1);
+      Printf(LCD_Putc,"ADC: %f",s1);
+      Delay_ms(100);      
+   }
+}

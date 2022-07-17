@@ -1,0 +1,70 @@
+///////////////////////////////////////////////////////////////////////////////
+/*-------------------------------Fusibles------------------------------------*/
+
+#INCLUDE <18F4550.H> //Indica el uC que se va usar
+#DEVICE ADC=10 //activando el convertidor ana-dig
+#USE DELAY(CLOCK=20M) // Frecuencia de trabajo
+#FUSES HS  // Velocidad del reloj   
+#FUSES NOWDT // Desactivar el perro guardian
+#FUSES NOPROTECT //  No protege código
+#FUSES PUT //  Espera de un tiempo de inicio
+#FUSES NOBROWNOUT // No reseteo por chequeo de la frecuencia ni fuente
+#FUSES NOLVP // No voltaje bajo de programación 
+#FUSES NOMCLR // Reset Digital
+
+///////////////////////////////////////////////////////////////////////////////
+/*---------Definiendo puerto, renombrando pines y creando variables----------*/
+
+#DEFINE LCD_DATA_PORT getenv("SFR:PORTB")
+#DEFINE LCD_ENABLE_PIN PIN_B0
+#DEFINE LCD_RS_PIN PIN_B1
+#DEFINE LCD_RW_PIN PIN_B2
+#DEFINE LCD_DATA4 PIN_B4
+#DEFINE LCD_DATA5 PIN_B5
+#DEFINE LCD_DATA6 PIN_B6
+#DEFINE LCD_DATA7 PIN_B7
+
+#INCLUDE <LCD.C>
+
+#INCLUDE <STDLIB.H>
+
+#Byte Port_A=0xF80
+#Byte Port_B=0xF81
+#Byte Port_C=0xF82
+#Byte Port_D=0xF83
+
+
+float s1; // variable almacena bits
+float s2; // variable almacena bits
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+Void Configuracion (Void)
+{      
+        Set_tris_b(0x00);
+        Port_b=0x00;
+        Set_tris_d(0x00);
+        port_d=0x00;
+        Setup_adc(ADC_CLOCK_INTERNAL); //Fija el Clock interno para el ADC.
+        Setup_adc_ports(AN0);
+        Set_adc_channel(0); //Fija el canal 0 para el ADC.
+        lcd_init();
+}        
+        
+Void main (void)
+{
+   Configuracion();
+   While (TRUE)
+   {
+      Output_low(PIN_D0);
+      delay_ms(20);
+      Output_high(PIN_D0);
+      delay_ms(20);
+      s1=read_adc();
+      s2=s1*5/1023;
+      printf(lcd_putc, "ADC = %4.3f",s1);
+      lcd_gotoxy(1,2);
+      printf(lcd_putc, "Voltaje = %4.3f",S2);
+   }
+}
