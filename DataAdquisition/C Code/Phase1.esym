@@ -1,7 +1,7 @@
 D G "__PCH__" 0 0 ""5.083""
 D G "__DEVICE__" 0 0 ""
-D G "__DATE__" 0 0 ""16-Jul-22""
-D G "__TIME__" 0 0 ""20:18:35""
+D G "__DATE__" 0 0 ""25-Jul-22""
+D G "__TIME__" 0 0 ""05:50:43""
 D G "_UNICODE" 0 0 ""?""
 D G "__EVAL" 0 0 ""?"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
@@ -1239,70 +1239,55 @@ d G "INT_EEPROM" 1 848 "0x00A010"
 d G "INT_OSCF" 1 849 "0x00A080"
 d G "INT_SPP" 1 850 "0x009D80"
 d G "INT_USB" 1 851 "0x00A020"
-D G "LCD_DB4" 0 11 "PIN_B4"
-D G "LCD_DB5" 0 12 "PIN_B5"
-D G "LCD_DB6" 0 13 "PIN_B6"
-D G "LCD_DB7" 0 14 "PIN_B7"
-D G "LCD_RS" 0 15 "PIN_B2"
-D G "LCD_E" 0 16 "PIN_B3"
-D G "lcd_type" 2 3 "2" "0=5x7, 1=5x10, 2=2 lines"
-D G "lcd_line_two" 2 4 "0x40" "LCD RAM address for the 2nd line"
-V G "LCD_INIT_STRING" 2 7 "[4]" `670 
-C L "jump_to_isr" 2 9 1 "FUNCTION"
-C L "jump_to_isr" 2 9 1 "FUNCTION"
-C L "jump_to_isr" 2 9 1 "FUNCTION"
-C L "jump_to_isr" 2 9 1 "FUNCTION"
-F N "lcd_send_nibble" 2 17 ""
-V L "nibble" 2 17 "int8" `673 
-F G "lcd_send_nibble" 2 18 "void(int8 nibble)" `672  "Note:  !! converts an integer expression"
-C L "lcd_send_nibble" 2 9 1 "FUNCTION"
-C L "lcd_send_byte" 2 9 6 "FUNCTION"
-F N "lcd_send_byte" 2 87 ""
-V L "address" 2 87 "int8" `675 
-V L "n" 2 87 "int8" `676 
-F G "lcd_send_byte" 2 88 "void(int8 address,int8 n)" `674 
-F N "lcd_init" 2 116 ""
-F G "lcd_init" 2 117 "void()" `677 
-V L "i" 2 118 "int8" `678 
-C L "lcd_init" 2 9 6 "FUNCTION"
-F N "lcd_gotoxy" 2 157 ""
-V L "x" 2 157 "int8" `680 
-V L "y" 2 157 "int8" `681 
-F G "lcd_gotoxy" 2 158 "void(int8 x,int8 y)" `679 
-V L "address" 2 159 "int8" `682 
-F N "lcd_putc" 2 171 ""
-V L "c" 2 171 "int8" `684 
-F G "lcd_putc" 2 172 "void(int8 c)" `683 
-F N "lcd_setcursor_vb" 2 213 ""
-V L "visible" 2 213 "int8" `686 
-V L "blink" 2 213 "int8" `687 
-F G "lcd_setcursor_vb" 2 213 "void(int8 visible,int8 blink)" `685 
-F N "lcd_clear" 2 217 ""
-F G "lcd_clear" 2 218 "void()" `688 
-F N "send_D7_D4" 2 222 ""
-V L "address_lcd" 2 222 "int8" `695 
-V L "nibble_lcd" 2 222 "int8" `696 
-F G "send_D7_D4" 2 223 "void(int8 address_lcd,int8 nibble_lcd)" `694 
-F N "send_byte_data" 2 240 ""
-V L "address_lcd" 2 240 "int8" `698 
-V L "n" 2 240 "int8" `699 
-F G "send_byte_data" 2 241 "void(int8 address_lcd,int8 n)" `697 
-F N "CGRAM_putc" 2 246 ""
-V L "n" 2 246 "int8" `701 
-F G "CGRAM_putc" 2 247 "void(int8 n)" `700 
-F N "CGRAM_position" 2 251 ""
-V L "p" 2 251 "int8" `703 
-F G "CGRAM_position" 2 252 "void(int8 p)" `702 
-F N "CGRAM_create_char" 2 256 ""
-V L "new_char" 2 256 "*int8" `705 
-F G "CGRAM_create_char" 2 257 "void(*int8 new_char)" `704 
-V L "cg" 2 258 "int8" `706 
-V G "s1" 0 19 "float" `707 
-V G "s2" 0 19 "float" `708 
-V G "s3" 0 19 "float" `709 
-V G "s4" 0 19 "float" `710  "Variables de Sensores"
-F N "MAIN" 0 21 ""
-F G "MAIN" 0 21 "void()" `711 
+C L "jump_to_isr" 2 2 31 "FUNCTION"
+C L "jump_to_isr" 2 2 1 "FUNCTION"
+C L "jump_to_isr" 2 2 1 "FUNCTION"
+C L "jump_to_isr" 2 2 1 "FUNCTION"
+C L "jump_to_isr" 2 2 1 "FUNCTION"
+C L "jump_to_isr" 2 2 1 "FUNCTION"
+C L "jump_to_isr" 2 2 1 "FUNCTION"
+V G "lcd" 2 44 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `675 
+D G "lcd_type" 2 49 "2" "0=5x7, 1=5x10, 2=2 lines"
+V G "LCD_INIT_STRING" 2 52 "[4]" `677 
+C L "jump_to_isr" 2 2 4 "FUNCTION"
+V G "LCD_WRITE" 2 60 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `679 
+C L "jump_to_isr" 2 2 1 "FUNCTION"
+V G "LCD_READ" 2 61 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `681 
+C L "jump_to_isr" 2 2 1 "FUNCTION"
+V G "lcdline" 2 64 "int8" `683 
+F N "lcd_read_byte" 2 66 ""
+F G "lcd_read_byte" 2 66 "int8()" `684 
+V L "low" 2 67 "int8" `685 
+V L "high" 2 67 "int8" `686 
+F N "lcd_send_nibble" 2 86 ""
+V L "n" 2 86 "int8" `688 
+F G "lcd_send_nibble" 2 86 "void(int8 n)" `687 
+F N "lcd_send_byte" 2 95 ""
+V L "address" 2 95 "int8" `690 
+V L "n" 2 95 "int8" `691 
+F G "lcd_send_byte" 2 95 "void(int8 address,int8 n)" `689 
+F N "lcd_init" 2 109 ""
+F G "lcd_init" 2 109 "void()" `692 
+V L "i" 2 110 "int8" `693 
+F N "lcd_gotoxy" 2 127 ""
+V L "x" 2 127 "int8" `695 
+V L "y" 2 127 "int8" `696 
+F G "lcd_gotoxy" 2 127 "void(int8 x,int8 y)" `694 
+V L "address" 2 128 "int8" `697 
+F N "lcd_putc" 2 140 ""
+V L "c" 2 140 "int8" `700 
+F G "lcd_putc" 2 140 "void(int8 c)" `699 
+F N "lcd_getc" 2 152 ""
+V L "x" 2 152 "int8" `702 
+V L "y" 2 152 "int8" `703 
+F G "lcd_getc" 2 152 "int8(int8 x,int8 y)" `701 
+V L "value" 2 153 "int8" `704 
+V G "s1" 0 12 "float" `705 
+V G "s2" 0 12 "float" `706 
+V G "s3" 0 12 "float" `707 
+V G "s4" 0 12 "float" `708  "Variables de Sensores"
+F N "MAIN" 0 14 ""
+F G "MAIN" 0 14 "void()" `709 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1
