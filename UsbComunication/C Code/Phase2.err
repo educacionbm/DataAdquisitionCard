@@ -1,0 +1,9 @@
+Compiling C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\UsbComunication\C Code\Phase2 on 29-jul-22 at 19:22
+>>> Warning 203 "C:\Program Files (x86)\PICC\Drivers\pic18_usb.c" Line 727(1,1): Condition always TRUE
+>>> Warning 203 "C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\UsbComunication\C Code\Phase2.c" Line 42(1,1): Condition always TRUE
+>>> Warning 216 "C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\UsbComunication\C Code\Phase2.c" Line 78(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_token_reset)
+>>> Warning 216 "C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\UsbComunication\C Code\Phase2.c" Line 78(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_tbe)
+>>> Warning 216 "C:\Users\BrainW7\Documents\BM Documents\ELECTRONIC\ELECTRONIC DESING\DataAdquisitionCard\UsbComunication\C Code\Phase2.c" Line 78(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_in)
+      Memory usage:   ROM=18%      RAM=11% - 13%
+      0 Errors,  5 Warnings.
+Build Successful.
